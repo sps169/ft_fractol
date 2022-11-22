@@ -6,12 +6,11 @@
 /*   By: sperez-s <sperez-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 12:21:16 by sperez-s          #+#    #+#             */
-/*   Updated: 2022/11/17 13:02:36 by sperez-s         ###   ########.fr       */
+/*   Updated: 2022/11/22 12:34:21 by sperez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <mlx.h>
+#include "fractol.h"
 
 int main(void)
 {
@@ -24,11 +23,11 @@ int main(void)
 	win = mlx_new_window(mlx, 200, 200, "Hello world!");
 	i = 0;
 	j = 0;
-	while (i < 10)
+	while (i < 20)
 	{
-		while(j < 10)
+		while(j < 20)
 		{
-			mlx_pixel_put(mlx, win, 95 + i, 95 + j, 1000);
+			mlx_pixel_put(mlx, win, 90 + i, 90 + j, calculate_color(900, 1000));
 			j++;
 		}
 		j = 0;
