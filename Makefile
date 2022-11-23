@@ -5,8 +5,8 @@ LIBFT_LIB = ./libft/libft.a
 
 SRC = 	$(SRC_DIR)main.c		\
 		$(SRC_DIR)maldelbrot.c	\
-		$(SRC_DIR)painter.c	\
-		
+		$(SRC_DIR)coloring.c	\
+		$(SRC_DIR)painter.c		\
 
 
 OBJS = $(SRC:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: sperez-s <sperez-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 18:27:08 by sperez-s          #+#    #+#             */
-/*   Updated: 2022/11/22 11:56:27 by sperez-s         ###   ########.fr       */
+/*   Updated: 2022/11/23 11:32:26 by sperez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,28 @@ struct	s_cn
 };
 typedef struct s_cn	t_cn;
 
+struct	s_screen
+{
+	unsigned int	zoom;
+	int				jumps_x;
+	int				jumps_y;
+	unsigned int	size_x;
+	unsigned int	size_y;
+};
+typedef struct s_screen	t_screen;
+
+struct s_mlx_win
+{
+	void	*mlx;
+	void	*win;
+};
+typedef struct s_mlx_win	t_mlx_win;
+
 unsigned int	calculate_color(int it, int max_it);
 
-unsigned int	hsv_to_rgb_int(double h, double s, double v);
+void			paint(t_cn center, t_screen screen, t_mlx_win mlx,
+					unsigned int (*coloring)(int, int), int (*math)(t_cn, int));
 
-unsigned int	rgb_to_int(unsigned int r, unsigned int g, unsigned int b);
+int				mandelbrot_escape_iterations(t_cn c, int max_it);
 
 #endif
