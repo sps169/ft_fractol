@@ -6,7 +6,7 @@
 /*   By: sperez-s <sperez-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 10:24:16 by sperez-s          #+#    #+#             */
-/*   Updated: 2022/11/23 12:43:47 by sperez-s         ###   ########.fr       */
+/*   Updated: 2022/11/24 12:31:49 by sperez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,8 @@ static unsigned int	hsv_to_rgb_int(double h, double s, double v)
 
 unsigned int	calculate_color(int it, int max_it)
 {
-	printf("it: %i\n", it);
 	if (it >= max_it)
 		return (0x00000000);
 	else
-		return (hsv_to_rgb_int(277, (double)it / (double)max_it, 1 / ((double)max_it/(double)it)));
+		return (hsv_to_rgb_int(277, (double)it / (double)max_it, (double)it/(double)max_it));
 }
