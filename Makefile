@@ -7,6 +7,7 @@ SRC = 	$(SRC_DIR)main.c		\
 		$(SRC_DIR)maldelbrot.c	\
 		$(SRC_DIR)coloring.c	\
 		$(SRC_DIR)painter.c		\
+		$(SRC_DIR)input_hooks.c	\
 
 
 OBJS = $(SRC:.c=.o)
