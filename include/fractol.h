@@ -6,7 +6,7 @@
 /*   By: sperez-s <sperez-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 18:27:08 by sperez-s          #+#    #+#             */
-/*   Updated: 2022/11/24 13:52:26 by sperez-s         ###   ########.fr       */
+/*   Updated: 2022/11/25 18:19:08 by sperez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ void			paint(t_vars vars, unsigned int (*coloring)(int, int), int (*math)(t_cn, 
 
 int				mandelbrot_escape_iterations(t_cn c, int max_it);
 
-int				scroll_hook(int m_code, t_vars vars);
+int				scroll_hook(int m_code, int x, int y, t_vars *vars);
 
-int				mouse_move_hook(int x, int y, t_vars vars);
+int				mouse_move_hook(int x, int y, t_vars *vars);
 
 #endif
