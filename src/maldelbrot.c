@@ -6,7 +6,7 @@
 /*   By: sperez-s <sperez-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 09:57:29 by sperez-s          #+#    #+#             */
-/*   Updated: 2022/11/23 11:37:27 by sperez-s         ###   ########.fr       */
+/*   Updated: 2022/12/19 13:06:06 by sperez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,3 @@ int	mandelbrot_escape_iterations(t_cn c, int max_it)
 	}
 	return (it);
 }
-

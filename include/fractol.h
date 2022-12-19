@@ -6,7 +6,7 @@
 /*   By: sperez-s <sperez-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 18:27:08 by sperez-s          #+#    #+#             */
-/*   Updated: 2022/11/25 18:19:08 by sperez-s         ###   ########.fr       */
+/*   Updated: 2022/12/19 12:50:52 by sperez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,20 @@ struct s_mlx_win
 };
 typedef struct s_mlx_win	t_mlx_win;
 
+struct s_frame
+{
+	t_cn	min;
+	t_cn	max;
+};
+typedef struct s_frame	t_frame;
+
 struct s_vars
 {
 	struct s_mlx_win	mlx_win;
 	struct s_screen		screen;
 	struct s_cn			center;
-	int					m_pos_x;
-	int					m_pos_y;
+	struct s_frame		frame;
+	int					max_it;
 };
 typedef struct s_vars	t_vars;
 
@@ -60,6 +67,6 @@ int				mandelbrot_escape_iterations(t_cn c, int max_it);
 
 int				scroll_hook(int m_code, int x, int y, t_vars *vars);
 
-int				mouse_move_hook(int x, int y, t_vars *vars);
+void			zoom(double zoom, int x, int y, t_vars *vars);
 
 #endif
