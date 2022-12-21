@@ -6,7 +6,7 @@
 /*   By: sperez-s <sperez-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 18:27:08 by sperez-s          #+#    #+#             */
-/*   Updated: 2022/12/19 12:50:52 by sperez-s         ###   ########.fr       */
+/*   Updated: 2022/12/21 11:11:02 by sperez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@
 # include <math.h>
 # include <mlx.h>
 
+# define NORTH 0
+# define SOUTH 1
+# define EAST 2
+# define WEST 3
+
 struct	s_cn
 {
 	double	r;
@@ -28,8 +33,6 @@ typedef struct s_cn	t_cn;
 struct	s_screen
 {
 	double			zoom;
-	double			jumps_x;
-	double			jumps_y;
 	unsigned int	size_x;
 	unsigned int	size_y;
 };
@@ -53,7 +56,6 @@ struct s_vars
 {
 	struct s_mlx_win	mlx_win;
 	struct s_screen		screen;
-	struct s_cn			center;
 	struct s_frame		frame;
 	int					max_it;
 };
@@ -68,5 +70,11 @@ int				mandelbrot_escape_iterations(t_cn c, int max_it);
 int				scroll_hook(int m_code, int x, int y, t_vars *vars);
 
 void			zoom(double zoom, int x, int y, t_vars *vars);
+
+int				keyboard_hook(int k_code, t_vars *vars);
+
+void			jump(int direction, t_vars *vars);
+
+void			initial_position(t_vars *vars);
 
 #endif
