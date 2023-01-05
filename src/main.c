@@ -6,7 +6,7 @@
 /*   By: sperez-s <sperez-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 12:21:16 by sperez-s          #+#    #+#             */
-/*   Updated: 2022/12/21 11:08:57 by sperez-s         ###   ########.fr       */
+/*   Updated: 2023/01/05 19:26:53 by sperez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int main(void)
 	// mlx_hook(vars.mlx_win.win, 6, (1L<<6), mouse_move_hook, &vars);
 	mlx_mouse_hook(vars.mlx_win.win, scroll_hook, &vars);
 	mlx_key_hook(vars.mlx_win.win, keyboard_hook, &vars);
-	paint(vars, calculate_color, mandelbrot_escape_iterations);
+	mlx_hook(vars.mlx_win.win, 17, (1L << 0), close_fractol, &vars);
+	paint(vars, calculate_color, julia_escape_iterations);
 	mlx_loop(mlx_win.mlx);
 }

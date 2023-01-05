@@ -6,7 +6,7 @@
 /*   By: sperez-s <sperez-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 18:27:08 by sperez-s          #+#    #+#             */
-/*   Updated: 2022/12/21 11:11:02 by sperez-s         ###   ########.fr       */
+/*   Updated: 2023/01/05 19:24:56 by sperez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,17 @@ struct s_vars
 	struct s_screen		screen;
 	struct s_frame		frame;
 	int					max_it;
+	int					color;
 };
 typedef struct s_vars	t_vars;
 
-unsigned int	calculate_color(int it, int max_it);
+unsigned int	calculate_color(int it, int max_it, t_vars vars);
 
-void			paint(t_vars vars, unsigned int (*coloring)(int, int), int (*math)(t_cn, int));
+void			paint(t_vars vars, unsigned int (*coloring)(int, int, t_vars), int (*math)(t_cn, int));
 
 int				mandelbrot_escape_iterations(t_cn c, int max_it);
+
+int				julia_escape_iterations(t_cn c, int max_it);
 
 int				scroll_hook(int m_code, int x, int y, t_vars *vars);
 
@@ -76,5 +79,7 @@ int				keyboard_hook(int k_code, t_vars *vars);
 void			jump(int direction, t_vars *vars);
 
 void			initial_position(t_vars *vars);
+
+int				close_fractol(t_vars *vars);
 
 #endif

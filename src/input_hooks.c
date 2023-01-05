@@ -6,7 +6,7 @@
 /*   By: sperez-s <sperez-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 11:32:55 by sperez-s          #+#    #+#             */
-/*   Updated: 2022/12/21 11:18:40 by sperez-s         ###   ########.fr       */
+/*   Updated: 2023/01/04 10:30:40 by sperez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,7 @@ int	keyboard_hook(int k_code, t_vars *vars)
 	else if (k_code == 124)
 		jump(EAST, vars);
 	else if (k_code == 53)
-	{
-		mlx_destroy_window(vars->mlx_win.mlx, vars->mlx_win.win);
-		exit(EXIT_SUCCESS);
-	}
+		close_fractol(vars);
 	else if (k_code == 6 && vars->max_it >= 35)
 	{
 		vars->max_it -= 25;
@@ -61,7 +58,11 @@ int	keyboard_hook(int k_code, t_vars *vars)
 	}
 	else if (k_code == 8)
 	{
-		//implement color switch
+		if (vars->color >= 3)
+			vars->color = 1;
+		else
+			vars->color++;
+		paint(*vars, calculate_color, mandelbrot_escape_iterations);
 	}
 	return (0);
 }

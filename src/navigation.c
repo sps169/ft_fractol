@@ -6,7 +6,7 @@
 /*   By: sperez-s <sperez-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 12:04:22 by sperez-s          #+#    #+#             */
-/*   Updated: 2022/12/21 11:12:02 by sperez-s         ###   ########.fr       */
+/*   Updated: 2023/01/04 10:30:15 by sperez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,11 @@ void	initial_position(t_vars *vars)
 	vars->max_it = 50;
 	vars->screen = screen;
 	vars->frame = frame;
+	vars->color = 1;
+}
+
+int	close_fractol(t_vars *vars)
+{
+	mlx_destroy_window(vars->mlx_win.mlx, vars->mlx_win.win);
+	exit(EXIT_SUCCESS);
 }

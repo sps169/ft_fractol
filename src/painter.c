@@ -6,7 +6,7 @@
 /*   By: sperez-s <sperez-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 10:44:21 by sperez-s          #+#    #+#             */
-/*   Updated: 2022/12/21 11:10:43 by sperez-s         ###   ########.fr       */
+/*   Updated: 2023/01/04 10:34:21 by sperez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
-void	paint(t_vars vars, unsigned int (*coloring)(int, int),
+void	paint(t_vars vars, unsigned int (*coloring)(int, int, t_vars),
 				int (*math)(t_cn, int))
 {
 	unsigned int	i;
@@ -23,10 +23,10 @@ void	paint(t_vars vars, unsigned int (*coloring)(int, int),
 
 	curr_n.r = vars.frame.min.r;
 	curr_n.i = vars.frame.min.i;
-	i = 1;
-	while (i <= vars.screen.size_x)
+	i = 0;
+	while (i < vars.screen.size_x)
 	{
-		j = 1;
+		j = 0;
 		while (j <= vars.screen.size_y)
 		{
 			curr_n.r = vars.frame.min.r + ((vars.frame.max.r - vars.frame.min.r)
@@ -34,7 +34,7 @@ void	paint(t_vars vars, unsigned int (*coloring)(int, int),
 			curr_n.i = vars.frame.min.i + ((vars.frame.max.i - vars.frame.min.i)
 					/ (double)vars.screen.size_y) * (double)j;
 			mlx_pixel_put(vars.mlx_win.mlx, vars.mlx_win.win, i, j,
-				coloring(math(curr_n, vars.max_it), vars.max_it));
+				coloring(math(curr_n, vars.max_it), vars.max_it, vars));
 			j++;
 		}
 		i++;

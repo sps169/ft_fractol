@@ -6,7 +6,7 @@
 /*   By: sperez-s <sperez-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 10:24:16 by sperez-s          #+#    #+#             */
-/*   Updated: 2022/12/19 12:44:42 by sperez-s         ###   ########.fr       */
+/*   Updated: 2023/01/04 10:10:02 by sperez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,10 @@ static unsigned int	hsv_to_rgb_int(double h, double s, double v)
 				round((0 + m) * 255), round((x + m) * 255)));
 }
 
-unsigned int	calculate_color(int it, int max_it)
+unsigned int	calculate_color(int it, int max_it, t_vars vars)
 {
 	if (it >= max_it)
 		return (0x00000000);
 	else
-		return (hsv_to_rgb_int(277, (double)it / (double)max_it, 0.8/*(double)it/(double)max_it)*/));
+		return (hsv_to_rgb_int(/*277*/((double)it / (double)max_it) * 120.0 * (double)vars.color, (double)it / (double)max_it, 0.8/*(double)it/(double)max_it)*/));
 }
