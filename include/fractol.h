@@ -6,7 +6,7 @@
 /*   By: sperez-s <sperez-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 18:27:08 by sperez-s          #+#    #+#             */
-/*   Updated: 2023/01/05 19:24:56 by sperez-s         ###   ########.fr       */
+/*   Updated: 2023/01/31 12:24:55 by sperez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ struct	s_cn
 	double	r;
 	double	i;
 };
-typedef struct s_cn	t_cn;
+typedef struct s_cn			t_cn;
 
 struct	s_screen
 {
@@ -36,7 +36,7 @@ struct	s_screen
 	unsigned int	size_x;
 	unsigned int	size_y;
 };
-typedef struct s_screen	t_screen;
+typedef struct s_screen		t_screen;
 
 struct s_mlx_win
 {
@@ -50,25 +50,28 @@ struct s_frame
 	t_cn	min;
 	t_cn	max;
 };
-typedef struct s_frame	t_frame;
+typedef struct s_frame		t_frame;
 
 struct s_vars
 {
-	struct s_mlx_win	mlx_win;
-	struct s_screen		screen;
-	struct s_frame		frame;
-	int					max_it;
-	int					color;
+	struct s_mlx_win		mlx_win;
+	struct s_screen			screen;
+	struct s_frame			frame;
+	struct s_cn				c;
+	int						max_it;
+	int						color;
+	int						(*maths_function)(struct s_cn, struct s_cn, int);
 };
-typedef struct s_vars	t_vars;
+typedef struct s_vars		t_vars;
 
 unsigned int	calculate_color(int it, int max_it, t_vars vars);
 
-void			paint(t_vars vars, unsigned int (*coloring)(int, int, t_vars), int (*math)(t_cn, int));
+void			paint(t_vars vars, unsigned int (*coloring)
+					(int, int, t_vars), int (*math)(t_cn, t_cn, int));
 
-int				mandelbrot_escape_iterations(t_cn c, int max_it);
+int				mandelbrot_escape_iterations(t_cn zo, t_cn c, int max_it);
 
-int				julia_escape_iterations(t_cn c, int max_it);
+int				julia_escape_iterations(t_cn zo, t_cn c, int max_it);
 
 int				scroll_hook(int m_code, int x, int y, t_vars *vars);
 

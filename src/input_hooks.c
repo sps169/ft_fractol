@@ -6,7 +6,7 @@
 /*   By: sperez-s <sperez-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 11:32:55 by sperez-s          #+#    #+#             */
-/*   Updated: 2023/01/04 10:30:40 by sperez-s         ###   ########.fr       */
+/*   Updated: 2023/01/31 12:33:50 by sperez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,17 +44,17 @@ int	keyboard_hook(int k_code, t_vars *vars)
 	else if (k_code == 6 && vars->max_it >= 35)
 	{
 		vars->max_it -= 25;
-		paint(*vars, calculate_color, mandelbrot_escape_iterations);
+		paint(*vars, calculate_color, vars->maths_function);
 	}
 	else if (k_code == 7 && vars->max_it <= 10000)
 	{
 		vars->max_it += 25;
-		paint(*vars, calculate_color, mandelbrot_escape_iterations);
+		paint(*vars, calculate_color, vars->maths_function);
 	}
 	else if (k_code == 15)
 	{
 		initial_position(vars);
-		paint(*vars, calculate_color, mandelbrot_escape_iterations);
+		paint(*vars, calculate_color, vars->maths_function);
 	}
 	else if (k_code == 8)
 	{
@@ -62,7 +62,7 @@ int	keyboard_hook(int k_code, t_vars *vars)
 			vars->color = 1;
 		else
 			vars->color++;
-		paint(*vars, calculate_color, mandelbrot_escape_iterations);
+		paint(*vars, calculate_color, vars->maths_function);
 	}
 	return (0);
 }

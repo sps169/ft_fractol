@@ -6,7 +6,7 @@
 /*   By: sperez-s <sperez-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 12:04:22 by sperez-s          #+#    #+#             */
-/*   Updated: 2023/01/04 10:30:15 by sperez-s         ###   ########.fr       */
+/*   Updated: 2023/01/31 12:39:58 by sperez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,20 +65,27 @@ void	initial_position(t_vars *vars)
 	t_frame		frame;
 	t_cn		min;
 	t_cn		max;
+	t_cn		c;
 
 	screen.size_x = 1920;
 	screen.size_y = 1080;
 	screen.zoom = 1;
-	min.r = -3.8;
-	max.i = 1.8;
-	max.r = 2.6;
-	min.i = -1.8;
+	c.r = 0.3;
+	c.i = 0.2;
+	min.r = -3.8 - c.r;
+	max.i = 1.8 - c.i;
+	max.r = 2.6 - c.r;
+	min.i = -1.8 - c.i;
 	frame.min = min;
 	frame.max = max;
+	// c.r = 0;
+	// c.i = 0;
+	vars->c = c;
 	vars->max_it = 50;
 	vars->screen = screen;
 	vars->frame = frame;
 	vars->color = 1;
+	vars->maths_function = &mandelbrot_escape_iterations;
 }
 
 int	close_fractol(t_vars *vars)
