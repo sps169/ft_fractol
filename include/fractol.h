@@ -6,7 +6,7 @@
 /*   By: sperez-s <sperez-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 18:27:08 by sperez-s          #+#    #+#             */
-/*   Updated: 2023/01/31 12:24:55 by sperez-s         ###   ########.fr       */
+/*   Updated: 2023/02/01 13:32:16 by sperez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "libft.h"
 # include <stdlib.h>
+# include <stdio.h>
 # include <math.h>
 # include <mlx.h>
 
@@ -22,6 +23,9 @@
 # define SOUTH 1
 # define EAST 2
 # define WEST 3
+# define MANDELBROT 'm'
+# define JULIA 'j'
+# define EXTRA 'e'
 
 struct	s_cn
 {
@@ -61,6 +65,7 @@ struct s_vars
 	int						max_it;
 	int						color;
 	int						(*maths_function)(struct s_cn, struct s_cn, int);
+	char					fractal;
 };
 typedef struct s_vars		t_vars;
 
@@ -81,8 +86,12 @@ int				keyboard_hook(int k_code, t_vars *vars);
 
 void			jump(int direction, t_vars *vars);
 
-void			initial_position(t_vars *vars);
+void			initial_position(char fractal, t_vars *vars);
 
 int				close_fractol(t_vars *vars);
+
+int				parse_args(t_vars *vars, int argc, char *argv[]);
+
+void			reset_position(t_vars *vars);
 
 #endif

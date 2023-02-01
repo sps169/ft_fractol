@@ -8,7 +8,9 @@ SRC = 	$(SRC_DIR)main.c			\
 		$(SRC_DIR)coloring.c		\
 		$(SRC_DIR)painter.c			\
 		$(SRC_DIR)input_hooks.c		\
+		$(SRC_DIR)input_parsing.c	\
 		$(SRC_DIR)navigation.c		\
+		$(SRC_DIR)setup_vars.c		\
 
 
 OBJS = $(SRC:.c=.o)
