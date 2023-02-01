@@ -6,7 +6,7 @@
 /*   By: sperez-s <sperez-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 13:20:40 by sperez-s          #+#    #+#             */
-/*   Updated: 2023/02/01 13:32:35 by sperez-s         ###   ########.fr       */
+/*   Updated: 2023/02/01 16:03:31 by sperez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ void	initial_position(char fractal, t_vars *vars)
 	screen.size_x = 1920;
 	screen.size_y = 1080;
 	screen.zoom = 1;
-	min.r = -3.8 - vars->c.r;
-	max.i = 1.8 - vars->c.i;
-	max.r = 2.6 - vars->c.r;
-	min.i = -1.8 - vars->c.i;
+	min.r = -3.8;
+	max.i = 1.8;
+	max.r = 2.6;
+	min.i = -1.8;
 	frame.min = min;
 	frame.max = max;
 	vars->max_it = 50;
@@ -36,7 +36,7 @@ void	initial_position(char fractal, t_vars *vars)
 	if (fractal == JULIA)
 		vars->maths_function = &julia_escape_iterations;
 	else if (fractal == EXTRA)
-		vars->maths_function = &mandelbrot_escape_iterations;
+		vars->maths_function = &burning_ship_escape_iterations;
 	else
 		vars->maths_function = &mandelbrot_escape_iterations;
 }
@@ -44,10 +44,10 @@ void	initial_position(char fractal, t_vars *vars)
 void	reset_position(t_vars *vars)
 {
 	vars->screen.zoom = 1;
-	vars->frame.min.r = -3.8 - vars->c.r;
-	vars->frame.max.i = 1.8 - vars->c.i;
-	vars->frame.max.r = 2.6 - vars->c.r;
-	vars->frame.min.i = -1.8 - vars->c.i;
+	vars->frame.min.r = -3.8;
+	vars->frame.max.i = 1.8;
+	vars->frame.max.r = 2.6;
+	vars->frame.min.i = -1.8;
 	vars->max_it = 50;
 	vars->color = 1;
 }

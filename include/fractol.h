@@ -6,7 +6,7 @@
 /*   By: sperez-s <sperez-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 18:27:08 by sperez-s          #+#    #+#             */
-/*   Updated: 2023/02/01 13:32:16 by sperez-s         ###   ########.fr       */
+/*   Updated: 2023/02/01 16:03:47 by sperez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ void			paint(t_vars vars, unsigned int (*coloring)
 int				mandelbrot_escape_iterations(t_cn zo, t_cn c, int max_it);
 
 int				julia_escape_iterations(t_cn zo, t_cn c, int max_it);
+
+int				burning_ship_escape_iterations(t_cn zo, t_cn c, int max_it);
 
 int				scroll_hook(int m_code, int x, int y, t_vars *vars);
 
