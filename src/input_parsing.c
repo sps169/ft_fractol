@@ -6,7 +6,7 @@
 /*   By: sperez-s <sperez-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 12:10:40 by sperez-s          #+#    #+#             */
-/*   Updated: 2023/02/01 16:03:17 by sperez-s         ###   ########.fr       */
+/*   Updated: 2023/02/08 14:18:25 by sperez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ static double	ft_atod (char *s)
 			i++;
 			j++;
 		}
+		free(trimmed);
 		return (neg * result);
 	}
 	else
@@ -74,7 +75,7 @@ int	parse_args(t_vars *vars, int argc, char *argv[])
 {
 	vars->c.r = 0.0;
 	vars->c.i = 0.0;
-	if (argc == 1 || (argc == 2 && argv[1][0] == MANDELBROT))
+	if (argc == 2 && argv[1][0] == MANDELBROT)
 	{
 		initial_position(MANDELBROT, vars);
 		return (1);
