@@ -6,7 +6,7 @@
 /*   By: sperez-s <sperez-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 11:32:55 by sperez-s          #+#    #+#             */
-/*   Updated: 2023/02/08 13:32:58 by sperez-s         ###   ########.fr       */
+/*   Updated: 2023/02/09 11:49:04 by sperez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,31 @@ int	scroll_hook(int m_code, int x, int y, t_vars *vars)
 	return (0);
 }
 
-int	keyboard_hook(int k_code, t_vars *vars)
+static void	jump_hooks(int k_code, t_vars *vars)
 {
 	if (k_code == 126)
 		jump(NORTH, vars);
-	else if(k_code == 125)
+	else if (k_code == 125)
 		jump(SOUTH, vars);
 	else if (k_code == 123)
 		jump(WEST, vars);
 	else if (k_code == 124)
 		jump(EAST, vars);
+}
+
+static void	change_color(t_vars *vars)
+{
+	if (vars->color >= 3)
+		vars->color = 1;
+	else
+		vars->color++;
+	paint(*vars, calculate_color, vars->maths_function);
+}
+
+int	keyboard_hook(int k_code, t_vars *vars)
+{
+	if (k_code >= 123 && k_code <= 126)
+		jump_hooks(k_code, vars);
 	else if (k_code == 53)
 		close_fractol(vars);
 	else if (k_code == 6 && vars->max_it >= 35)
@@ -57,12 +72,6 @@ int	keyboard_hook(int k_code, t_vars *vars)
 		paint(*vars, calculate_color, vars->maths_function);
 	}
 	else if (k_code == 8)
-	{
-		if (vars->color >= 3)
-			vars->color = 1;
-		else
-			vars->color++;
-		paint(*vars, calculate_color, vars->maths_function);
-	}
+		change_color(vars);
 	return (0);
 }

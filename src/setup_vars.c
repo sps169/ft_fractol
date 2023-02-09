@@ -6,7 +6,7 @@
 /*   By: sperez-s <sperez-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 13:20:40 by sperez-s          #+#    #+#             */
-/*   Updated: 2023/02/08 14:31:12 by sperez-s         ###   ########.fr       */
+/*   Updated: 2023/02/09 11:41:29 by sperez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,3 @@ void	reset_position(t_vars *vars)
 	vars->max_it = 50;
 	vars->color = 1;
 }
-
-

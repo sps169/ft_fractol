@@ -6,7 +6,7 @@
 /*   By: sperez-s <sperez-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 12:04:22 by sperez-s          #+#    #+#             */
-/*   Updated: 2023/02/01 13:36:15 by sperez-s         ###   ########.fr       */
+/*   Updated: 2023/02/09 11:43:11 by sperez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	zoom(double zoom, int x, int y, t_vars *vars)
 void	jump(int direction, t_vars *vars)
 {
 	double	size;
-	
+
 	if (direction == NORTH || direction == SOUTH)
 	{
 		size = fabs(vars->frame.min.i - vars->frame.max.i);

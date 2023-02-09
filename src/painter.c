@@ -6,7 +6,7 @@
 /*   By: sperez-s <sperez-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 10:44:21 by sperez-s          #+#    #+#             */
-/*   Updated: 2023/02/01 15:18:50 by sperez-s         ###   ########.fr       */
+/*   Updated: 2023/02/09 11:42:40 by sperez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	paint(t_vars vars, unsigned int (*coloring)(int, int, t_vars),
 	unsigned int	j;
 	t_cn			curr_n;
 
-	
 	curr_n.r = vars.frame.min.r;
 	curr_n.i = vars.frame.min.i;
 	i = 0;

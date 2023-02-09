@@ -6,7 +6,7 @@
 /*   By: sperez-s <sperez-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 18:27:08 by sperez-s          #+#    #+#             */
-/*   Updated: 2023/02/01 16:03:47 by sperez-s         ###   ########.fr       */
+/*   Updated: 2023/02/09 12:42:09 by sperez-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,7 @@ int				close_fractol(t_vars *vars);
 int				parse_args(t_vars *vars, int argc, char *argv[]);
 
 void			reset_position(t_vars *vars);
+
+void			wrong_input_exit(void);
 
 #endif
